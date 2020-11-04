@@ -3,7 +3,39 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://unofficial-vra-docs.github.io/code-stream/custom-integrations/</loc>
+  </url>
+  
+  <url>
+    <loc>https://unofficial-vra-docs.github.io/cloud-assembly/</loc>
+  </url>
+  
+  <url>
+    <loc>https://unofficial-vra-docs.github.io/cloud-assembly/cloud-templates/</loc>
+  </url>
+  
+  <url>
+    <loc>https://unofficial-vra-docs.github.io/cloud-assembly/extensibility/</loc>
+  </url>
+  
+  <url>
+    <loc>https://unofficial-vra-docs.github.io/code-stream/</loc>
+  </url>
+  
+  <url>
+    <loc>https://unofficial-vra-docs.github.io/service-broker/</loc>
+  </url>
+  
+  <url>
+    <loc>https://unofficial-vra-docs.github.io/orchestrator/</loc>
+  </url>
+  
+  <url>
     <loc>https://unofficial-vra-docs.github.io/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://unofficial-vra-docs.github.io/code-stream/custom-integrations/sleep/</loc>
   </url>
   
   <url>

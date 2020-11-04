@@ -11,20 +11,95 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link rel="stylesheet" href="https://unofficial-vra-docs.github.io/css/styles.css">
-  
+  <link rel="stylesheet" href="https://unofficial-vra-docs.github.io/css/syntax.css">
   <link href="/index.xml" rel="alternate" type="application/rss+xml" title="The Unofficial vRealize Automation Docs" />
 
 </head>
 <body>
 
-<div class="sidebar sidebar-">
+<div class="sidebar sidebar-default">
     <div class="navigation">
-        
+        <img src="images/vra-logo.png" style="width: 20%"><img src="images/vra-cloud-assembly-logo.png" style="width: 20%"><img src="images/vra-code-stream-logo.png" style="width: 20%"><img src="images/vra-service-broker-logo.png" style="width: 20%">
         <h1 class="site-title"><a href="https://unofficial-vra-docs.github.io/">The Unofficial vRealize Automation Docs</a></h1>
 
 
         <nav class="internal">
             <ul>
+    
+        
+            
+    <li>
+        <a href="#cloudassembly">Cloud Assembly</a>
+        <ul>
+            
+                
+                    
+    <li>
+        <a href="#cloudtemplates">Cloud Templates</a>
+    </li>
+
+
+
+                
+                    
+    <li>
+        <a href="#extensibility">Extensibility</a>
+    </li>
+
+
+
+                
+            
+        </ul>
+    </li>
+
+
+
+        
+            
+    <li>
+        <a href="#codestream">Code Stream</a>
+        <ul>
+            
+                
+                    
+    <li>
+        <a href="#customintegrations">Custom Integrations</a>
+        <ul>
+            
+                
+                    <li><a href="#sleep">Sleep</a></li>
+                
+            
+        </ul>
+    </li>
+
+
+
+                
+            
+        </ul>
+    </li>
+
+
+
+        
+            
+    <li>
+        <a href="#servicebroker">Service Broker</a>
+    </li>
+
+
+
+        
+            
+    <li>
+        <a href="#orchestrator">Orchestrator</a>
+    </li>
+
+
+
+        
     
 </ul>
 
@@ -32,6 +107,14 @@
 
         <nav class="external">
             <div class="external-title"></div>
+            
+            <ul id="shortcuts">
+                
+                <li>
+                    <a href="https://github.com/unofficial-vra-docs/unofficial-vra-docs" target="_blank" rel="noopener">Contribute</a>
+                </li>
+                
+            </ul>
             
         </nav>
     </div>
@@ -42,6 +125,157 @@
 </div>
 
 <div class="content">
+    
+        
+            
+    <section class="page" id="cloudassembly">
+    <h1>
+        <a href="#cloudassembly">Cloud Assembly</a>
+    </h1>
+    <div class="content">
+        <p>Cloud Assembly Examples</p>
+
+    </div>
+</section>
+
+    
+        
+            
+    <section class="page" id="cloudtemplates">
+    <h1>
+        <a href="#cloudtemplates">Cloud Templates</a>
+    </h1>
+    <div class="content">
+        <p>VMware Cloud Templates</p>
+
+    </div>
+</section>
+
+
+
+
+        
+            
+    <section class="page" id="extensibility">
+    <h1>
+        <a href="#extensibility">Extensibility</a>
+    </h1>
+    <div class="content">
+        <p>Extensibility</p>
+
+    </div>
+</section>
+
+
+
+
+        
+    
+
+
+
+        
+            
+    <section class="page" id="codestream">
+    <h1>
+        <a href="#codestream">Code Stream</a>
+    </h1>
+    <div class="content">
+        <p>Code Stream</p>
+
+    </div>
+</section>
+
+    
+        
+            
+    <section class="page" id="customintegrations">
+    <h1>
+        <a href="#customintegrations">Custom Integrations</a>
+    </h1>
+    <div class="content">
+        <p>To create a Custom Integration:</p>
+<ol>
+<li>Create a new Custom Integration</li>
+<li>Select the Runtime to match the example below</li>
+<li>Replace the placeholder code with the example from below</li>
+<li>Save and version the Custom Integration, ensuring you eanble the “Release Version” toggle</li>
+</ol>
+<p>To use a Custom Integration in a pipeline:</p>
+<ol>
+<li>Configure the Host (you’ll need a Docker endpoint configured for this) and Builder image URL settings in the Workspace tab of your pipeline (e.g. python:latest will work for a Python3 example)</li>
+<li>Add a new Custom task to your Stage, select the name of your integration and configure any inputs</li>
+<li>Use the task outputs to refer to the output values in your later tasks - e.g. <code>stageName.taskName.output.properties.&lt;outputPropertyName&gt;</code></li>
+</ol>
+
+    </div>
+</section>
+
+    
+            
+                <section class="page" id="sleep">
+    <h1>
+        <a href="#sleep">Sleep</a>
+    </h1>
+    <div class="content">
+        <p>Sleeps for a custom number of seconds set by <code>sleepTime</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">---<span class="w">
+</span><span class="w"></span><span class="k">runtime</span><span class="p">:</span><span class="w"> </span>shell<span class="w">
+</span><span class="w"></span><span class="k">code</span><span class="p">:</span><span class="w"> </span><span class="sd">|
+</span><span class="sd">  sleep $sleepTime</span><span class="w">
+</span><span class="w"></span><span class="k">inputProperties</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;sleepTime&#39;</span><span class="w">
+</span><span class="w">    </span><span class="k">type</span><span class="p">:</span><span class="w"> </span>number<span class="w">
+</span><span class="w">    </span><span class="k">title</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Sleep Time (s)&#39;</span><span class="w">
+</span><span class="w">    </span><span class="k">placeHolder</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Number input&#39;</span><span class="w">
+</span><span class="w">    </span><span class="k">minimum</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">    </span><span class="k">maximum</span><span class="p">:</span><span class="w"> </span><span class="m">600</span><span class="w">
+</span><span class="w">    </span><span class="k">defaultValue</span><span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
+</span></code></pre></div>
+    </div>
+</section>
+
+            
+    
+
+
+
+        
+    
+
+
+
+        
+            
+    <section class="page" id="servicebroker">
+    <h1>
+        <a href="#servicebroker">Service Broker</a>
+    </h1>
+    <div class="content">
+        <p>Service Broker Examples</p>
+
+    </div>
+</section>
+
+
+
+
+        
+            
+    <section class="page" id="orchestrator">
+    <h1>
+        <a href="#orchestrator">Orchestrator</a>
+    </h1>
+    <div class="content">
+        <p>Orchestrator</p>
+
+    </div>
+</section>
+
+
+
+
+        
     
 </div>
 </body>
