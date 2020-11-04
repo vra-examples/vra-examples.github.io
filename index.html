@@ -1,283 +1,123 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head>
-  <meta name="generator" content="Hugo 0.69.2" />
-
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-
-  <title>The Unofficial vRealize Automation Docs</title>
-
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-  <link rel="stylesheet" href="https://unofficial-vra-docs.github.io/css/styles.css">
-  <link rel="stylesheet" href="https://unofficial-vra-docs.github.io/css/syntax.css">
-  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="The Unofficial vRealize Automation Docs" />
-
-</head>
-<body>
-
-<div class="sidebar sidebar-default">
-    <div class="navigation">
-        <img src="images/vra-logo.png" style="width: 20%"><img src="images/vra-cloud-assembly-logo.png" style="width: 20%"><img src="images/vra-code-stream-logo.png" style="width: 20%"><img src="images/vra-service-broker-logo.png" style="width: 20%">
-        <h1 class="site-title"><a href="https://unofficial-vra-docs.github.io/">The Unofficial vRealize Automation Docs</a></h1>
-
-
-        <nav class="internal">
-            <ul>
-    
-        
-            
-    <li>
-        <a href="#cloudassembly">Cloud Assembly</a>
-        <ul>
-            
-                
-                    
-    <li>
-        <a href="#cloudtemplates">Cloud Templates</a>
-    </li>
-
-
-
-                
-                    
-    <li>
-        <a href="#extensibility">Extensibility</a>
-    </li>
-
-
-
-                
-            
-        </ul>
-    </li>
-
-
-
-        
-            
-    <li>
-        <a href="#codestream">Code Stream</a>
-        <ul>
-            
-                
-                    
-    <li>
-        <a href="#customintegrations">Custom Integrations</a>
-        <ul>
-            
-                
-                    <li><a href="#sleep">Sleep</a></li>
-                
-            
-        </ul>
-    </li>
-
-
-
-                
-            
-        </ul>
-    </li>
-
-
-
-        
-            
-    <li>
-        <a href="#servicebroker">Service Broker</a>
-    </li>
-
-
-
-        
-            
-    <li>
-        <a href="#orchestrator">Orchestrator</a>
-    </li>
-
-
-
-        
-    
-</ul>
-
-        </nav>
-
-        <nav class="external">
-            <div class="external-title"></div>
-            
-            <ul id="shortcuts">
-                
-                <li>
-                    <a href="https://github.com/unofficial-vra-docs/unofficial-vra-docs" target="_blank" rel="noopener">Contribute</a>
-                </li>
-                
-            </ul>
-            
-        </nav>
-    </div>
-
-    <div class="version">
-            generated on Nov 4, 2020
-    </div>
-</div>
-
-<div class="content">
-    
-        
-            
-    <section class="page" id="cloudassembly">
-    <h1>
-        <a href="#cloudassembly">Cloud Assembly</a>
-    </h1>
-    <div class="content">
-        <p>Cloud Assembly Examples</p>
-
-    </div>
-</section>
-
-    
-        
-            
-    <section class="page" id="cloudtemplates">
-    <h1>
-        <a href="#cloudtemplates">Cloud Templates</a>
-    </h1>
-    <div class="content">
-        <p>VMware Cloud Templates</p>
-
-    </div>
-</section>
-
-
-
-
-        
-            
-    <section class="page" id="extensibility">
-    <h1>
-        <a href="#extensibility">Extensibility</a>
-    </h1>
-    <div class="content">
-        <p>Extensibility</p>
-
-    </div>
-</section>
-
-
-
-
-        
-    
-
-
-
-        
-            
-    <section class="page" id="codestream">
-    <h1>
-        <a href="#codestream">Code Stream</a>
-    </h1>
-    <div class="content">
-        <p>Code Stream</p>
-
-    </div>
-</section>
-
-    
-        
-            
-    <section class="page" id="customintegrations">
-    <h1>
-        <a href="#customintegrations">Custom Integrations</a>
-    </h1>
-    <div class="content">
-        <p>To create a Custom Integration:</p>
-<ol>
-<li>Create a new Custom Integration</li>
-<li>Select the Runtime to match the example below</li>
-<li>Replace the placeholder code with the example from below</li>
-<li>Save and version the Custom Integration, ensuring you eanble the “Release Version” toggle</li>
-</ol>
-<p>To use a Custom Integration in a pipeline:</p>
-<ol>
-<li>Configure the Host (you’ll need a Docker endpoint configured for this) and Builder image URL settings in the Workspace tab of your pipeline (e.g. python:latest will work for a Python3 example)</li>
-<li>Add a new Custom task to your Stage, select the name of your integration and configure any inputs</li>
-<li>Use the task outputs to refer to the output values in your later tasks - e.g. <code>stageName.taskName.output.properties.&lt;outputPropertyName&gt;</code></li>
-</ol>
-
-    </div>
-</section>
-
-    
-            
-                <section class="page" id="sleep">
-    <h1>
-        <a href="#sleep">Sleep</a>
-    </h1>
-    <div class="content">
-        <p>Sleeps for a custom number of seconds set by <code>sleepTime</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">---<span class="w">
-</span><span class="w"></span><span class="k">runtime</span><span class="p">:</span><span class="w"> </span>shell<span class="w">
-</span><span class="w"></span><span class="k">code</span><span class="p">:</span><span class="w"> </span><span class="sd">|
-</span><span class="sd">  sleep $sleepTime</span><span class="w">
-</span><span class="w"></span><span class="k">inputProperties</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;sleepTime&#39;</span><span class="w">
-</span><span class="w">    </span><span class="k">type</span><span class="p">:</span><span class="w"> </span>number<span class="w">
-</span><span class="w">    </span><span class="k">title</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Sleep Time (s)&#39;</span><span class="w">
-</span><span class="w">    </span><span class="k">placeHolder</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Number input&#39;</span><span class="w">
-</span><span class="w">    </span><span class="k">minimum</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
-</span><span class="w">    </span><span class="k">maximum</span><span class="p">:</span><span class="w"> </span><span class="m">600</span><span class="w">
-</span><span class="w">    </span><span class="k">defaultValue</span><span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
-</span></code></pre></div>
-    </div>
-</section>
-
-            
-    
-
-
-
-        
-    
-
-
-
-        
-            
-    <section class="page" id="servicebroker">
-    <h1>
-        <a href="#servicebroker">Service Broker</a>
-    </h1>
-    <div class="content">
-        <p>Service Broker Examples</p>
-
-    </div>
-</section>
-
-
-
-
-        
-            
-    <section class="page" id="orchestrator">
-    <h1>
-        <a href="#orchestrator">Orchestrator</a>
-    </h1>
-    <div class="content">
-        <p>Orchestrator</p>
-
-    </div>
-</section>
-
-
-
-
-        
-    
-</div>
-</body>
-</html>
-
+<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en-us lang=en-us><head><meta name=generator content="Hugo 0.74.3"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>Unofficial vRealize Automation How-To Docs</title><link rel="shortcut icon" href=favicon.ico type=image/x-icon><link href="https://fonts.googleapis.com/css?family=Open+Sans" rel=stylesheet><link rel=stylesheet href=https://unofficial-vra-docs.github.io/css/styles.css><link rel=stylesheet href=https://unofficial-vra-docs.github.io/css/syntax.css><link href=/index.xml rel=alternate type=application/rss+xml title="Unofficial vRealize Automation How-To Docs"></head><body><div class="sidebar sidebar-default"><div class=navigation><img src=images/vra-logo.png style=width:20%><img src=images/vra-cloud-assembly-logo.png style=width:20%><img src=images/vra-code-stream-logo.png style=width:20%><img src=images/vra-service-broker-logo.png style=width:20%><h1 class=site-title><a href=https://unofficial-vra-docs.github.io/>Unofficial vRealize Automation How-To Docs</a></h1><nav class=internal><ul><li><a href=#cloudassembly>Cloud Assembly</a><ul><li><a href=#cloudtemplates>Cloud Templates</a><ul><li><a href=#ubuntudockerhost>Ubuntu Docker Host</a></li></ul></li><li><a href=#extensibility>Extensibility</a></li></ul></li><li><a href=#codestream>Code Stream</a><ul><li><a href=#pipelines>Pipelines</a></li><li><a href=#customintegrations>Custom Integrations</a><ul><li><a href=#basicauthenticationheader>Basic Authentication Header</a></li><li><a href=#sleep>Sleep</a></li></ul></li></ul></li><li><a href=#servicebroker>Service Broker</a></li><li><a href=#orchestrator>Orchestrator</a></li></ul></nav><nav class=external><div class=external-title></div><ul id=shortcuts><li><a href=https://github.com/unofficial-vra-docs/unofficial-vra-docs target=_blank rel=noopener>Got an example? Contribute!</a></li></ul></nav></div><div class=version>generated on Nov 4, 2020</div></div><div class=content><section class=page id=cloudassembly><h1><a href=#cloudassembly>Cloud Assembly</a></h1><div class=content><p>Cloud Assembly Examples</p></div></section><section class=page id=cloudtemplates><h1><a href=#cloudtemplates>Cloud Templates</a></h1><div class=content><p>VMware Cloud Templates</p></div></section><section class=page id=ubuntudockerhost><h1><a href=#ubuntudockerhost>Ubuntu Docker Host</a></h1><div class=content><p>Deploy an Ubuntu 18.04 template and install Docker. Configure the Docker service and firewall to allow remote connections.</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>formatVersion</span><span class=p>:</span><span class=w> </span><span class=m>1</span><span class=w>
+</span><span class=w></span><span class=k>inputs</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=k>user</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>string<span class=w>
+</span><span class=w>    </span><span class=k>title</span><span class=p>:</span><span class=w> </span>Username<span class=w> </span>for<span class=w> </span>SSH<span class=w>
+</span><span class=w>    </span><span class=k>description</span><span class=p>:</span><span class=w> </span>The<span class=w> </span>username<span class=w> </span>you<span class=w> </span>would<span class=w> </span>like<span class=w> </span>to<span class=w> </span>have<span class=w> </span>for<span class=w> </span>the<span class=w> </span>installation.<span class=w>
+</span><span class=w>    </span><span class=k>default</span><span class=p>:</span><span class=w> </span>demouser<span class=w>
+</span><span class=w>  </span><span class=k>password</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>string<span class=w>
+</span><span class=w>    </span><span class=k>pattern</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;[a-z0-9A-Z@#$]+&#39;</span><span class=w>
+</span><span class=w>    </span><span class=k>encrypted</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>    </span><span class=k>title</span><span class=p>:</span><span class=w> </span>Admin<span class=w> </span>Account<span class=w> </span>Password<span class=w>
+</span><span class=w>    </span><span class=k>description</span><span class=p>:</span><span class=w> </span>The<span class=w> </span>password<span class=w> </span>you<span class=w> </span>would<span class=w> </span>like<span class=w> </span>to<span class=w> </span>use<span class=w> </span>for<span class=w> </span>the<span class=w> </span>System.<span class=w>
+</span><span class=w></span><span class=k>resources</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=k>dockerhost</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>Cloud.Machine<span class=w>
+</span><span class=w>    </span><span class=k>properties</span><span class=p>:</span><span class=w>
+</span><span class=w>      </span><span class=k>image</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;ubuntu1804&#39;</span><span class=w>
+</span><span class=w>      </span><span class=k>flavor</span><span class=p>:</span><span class=w> </span>medium<span class=w>
+</span><span class=w>      </span><span class=k>constraints</span><span class=p>:</span><span class=w>
+</span><span class=w>        </span>- <span class=k>tag</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;cloud:vsphere&#39;</span><span class=w>
+</span><span class=w>      </span><span class=k>cloudConfig</span><span class=p>:</span><span class=w> </span><span class=sd>|
+</span><span class=sd>        #cloud-config</span><span class=w>
+</span><span class=w>        </span><span class=k>users</span><span class=p>:</span><span class=w>
+</span><span class=w>          </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>${input.user}<span class=w>
+</span><span class=w>            </span><span class=k>sudo</span><span class=p>:</span><span class=w> </span><span class=p>[</span><span class=s1>&#39;ALL=(ALL) NOPASSWD:ALL&#39;</span><span class=p>]</span><span class=w>
+</span><span class=w>            </span><span class=k>groups</span><span class=p>:</span><span class=w> </span>sudo<span class=w>
+</span><span class=w>            </span><span class=k>shell</span><span class=p>:</span><span class=w> </span>/bin/bash<span class=w>
+</span><span class=w>        </span><span class=k>hostname</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${input.user}-dockerhost&#39;</span><span class=w>
+</span><span class=w>        </span><span class=k>packages</span><span class=p>:</span><span class=w>
+</span><span class=w>          </span>- apt-transport-https<span class=w>
+</span><span class=w>          </span>- ca-certificates<span class=w>
+</span><span class=w>          </span>- curl<span class=w>
+</span><span class=w>          </span>- gnupg-agent<span class=w>
+</span><span class=w>          </span>- software-properties-common<span class=w>
+</span><span class=w>        </span><span class=k>runcmd</span><span class=p>:</span><span class=w>
+</span><span class=w>          </span>- PASS=${input.password}<span class=w>    
+</span><span class=w>          </span>- USER=${input.user}<span class=w>
+</span><span class=w>          </span>- echo<span class=w> </span>$USER<span class=p>:</span>$PASS<span class=w> </span>|<span class=w> </span>/usr/sbin/chpasswd<span class=w>
+</span><span class=w>          </span>- sed<span class=w> </span>-i<span class=w> </span><span class=s2>&#34;s/PasswordAuthentication no/PasswordAuthentication yes/g&#34;</span><span class=w> </span>/etc/ssh/sshd_config<span class=w>
+</span><span class=w>          </span>- service<span class=w> </span>ssh<span class=w> </span>reload<span class=w>
+</span><span class=w>          </span>- curl<span class=w> </span>-fsSL<span class=w> </span>https<span class=p>:</span>//download.docker.com/linux/ubuntu/gpg<span class=w> </span>|<span class=w> </span>apt-key<span class=w> </span>add<span class=w> </span><span class=sd>-
+</span><span class=sd>          - add-apt-repository &#34;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&#34;</span><span class=w>
+</span><span class=w>          </span>- apt-get<span class=w> </span>update<span class=w>
+</span><span class=w>          </span>- apt-get<span class=w> </span>install<span class=w> </span>-yq<span class=w> </span>docker-ce<span class=w> </span>docker-ce-cli<span class=w> </span>containerd.io<span class=w>
+</span><span class=w>          </span>- mkdir<span class=w> </span>-p<span class=w> </span>/etc/systemd/system/docker.service.d/<span class=w>
+</span><span class=w>          </span>- echo<span class=w> </span><span class=s2>&#34;[Service]&#34;</span><span class=w> </span>&gt;<span class=w> </span>/etc/systemd/system/docker.service.d/override.conf<span class=w>
+</span><span class=w>          </span>- echo<span class=w> </span><span class=s2>&#34;ExecStart=&#34;</span><span class=w> </span>&gt;&gt;<span class=w> </span>/etc/systemd/system/docker.service.d/override.conf<span class=w>
+</span><span class=w>          </span>- echo<span class=w> </span><span class=s2>&#34;ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0:2375&#34;</span><span class=w> </span>&gt;&gt;<span class=w> </span>/etc/systemd/system/docker.service.d/override.conf<span class=w>
+</span><span class=w>          </span>- systemctl<span class=w> </span>daemon-reload<span class=w>
+</span><span class=w>          </span>- systemctl<span class=w> </span>restart<span class=w> </span>docker.service<span class=w>
+</span><span class=w>          </span>- ufw<span class=w> </span>allow<span class=w> </span><span class=m>2375</span><span class=w>
+</span><span class=w>          </span>- ufw<span class=w> </span>reload<span class=w>
+</span><span class=w>      </span><span class=k>cloudConfigSettings</span><span class=p>:</span><span class=w> 
+</span><span class=w>        </span><span class=k>phoneHomeTimeoutSeconds</span><span class=p>:</span><span class=w> </span><span class=m>300</span><span class=w>
+</span><span class=w>        </span><span class=k>phoneHomeShouldWait</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>        </span><span class=k>phoneHomeFailOnTimeout</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></code></pre></div></div></section><section class=page id=extensibility><h1><a href=#extensibility>Extensibility</a></h1><div class=content><p>Extensibility</p></div></section><section class=page id=codestream><h1><a href=#codestream>Code Stream</a></h1><div class=content><p>Code Stream</p></div></section><section class=page id=pipelines><h1><a href=#pipelines>Pipelines</a></h1><div class=content><p>Code Stream Pipelines</p></div></section><section class=page id=customintegrations><h1><a href=#customintegrations>Custom Integrations</a></h1><div class=content><p>To create a Custom Integration:</p><ol><li>Create a new Custom Integration</li><li>Select the Runtime to match the example below</li><li>Replace the placeholder code with the example from below</li><li>Save and version the Custom Integration, ensuring you eanble the “Release Version” toggle</li></ol><p>To use a Custom Integration in a pipeline:</p><ol><li>Configure the Host (you’ll need a Docker endpoint configured for this) and Builder image URL settings in the Workspace tab of your pipeline (e.g. python:latest will work for a Python3 example)</li><li>Add a new Custom task to your Stage, select the name of your integration and configure any inputs</li><li>Use the task outputs to refer to the output values in your later tasks - e.g. <code>stageName.taskName.output.properties.&lt;outputPropertyName></code></li></ol></div></section><section class=page id=basicauthenticationheader><h1><a href=#basicauthenticationheader>Basic Authentication Header</a></h1><div class=content><p>To generate a basic authentication header from a username and password in Code Stream you could use a CI task and execute <code>echo -n username:password | base64</code>, then export the result for use later on. A more repeatable way is to create a Custom Integration that takes the two inputs, and returns the encoded header as an output.</p><p>Using the shell runtime:</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml>---<span class=w>
+</span><span class=w></span><span class=k>runtime</span><span class=p>:</span><span class=w> </span>shell<span class=w>
+</span><span class=w></span><span class=k>code</span><span class=p>:</span><span class=w> </span><span class=sd>|
+</span><span class=sd>  export basicAuthHeader=$(echo -n $username:$password | base64)</span><span class=w>
+</span><span class=w></span><span class=k>inputProperties</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=c># Username input</span><span class=w>
+</span><span class=w>  </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;username&#39;</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>text<span class=w>
+</span><span class=w>    </span><span class=k>title</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;Username&#39;</span><span class=w>
+</span><span class=w>    </span><span class=k>placeHolder</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;Enter basic authentication usename&#39;</span><span class=w>
+</span><span class=w>    </span><span class=k>required</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>    </span><span class=k>bindable</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>  </span><span class=c># Password input</span><span class=w>
+</span><span class=w>  </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;password&#39;</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>password<span class=w>
+</span><span class=w>    </span><span class=k>title</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;Password&#39;</span><span class=w>
+</span><span class=w>    </span><span class=k>placeHolder</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;Enter basic authentication password&#39;</span><span class=w>
+</span><span class=w>    </span><span class=k>defaultValue</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;&#39;</span><span class=w>
+</span><span class=w>    </span><span class=k>required</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>    </span><span class=k>bindable</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w></span><span class=k>outputProperties</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>basicAuthHeader<span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>label<span class=w>
+</span><span class=w>    </span><span class=k>title</span><span class=p>:</span><span class=w> </span>Basic<span class=w> </span>Authentication<span class=w> </span>Header<span class=w>
+</span></code></pre></div><p>Using the Python3 runtime:</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml>---<span class=w>
+</span><span class=w></span><span class=k>runtime</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;python3&#34;</span><span class=w>
+</span><span class=w></span><span class=k>code</span><span class=p>:</span><span class=w> </span><span class=sd>|
+</span><span class=sd>  from base64 import b64encode</span><span class=w>
+</span><span class=w>  </span>from<span class=w> </span>context<span class=w> </span>import<span class=w> </span>getInput<span class=p>,</span><span class=w> </span>setOutput<span class=w>
+</span><span class=w>  </span>username<span class=w> </span>=<span class=w> </span>getInput(<span class=s1>&#39;username&#39;</span>)<span class=w>
+</span><span class=w>  </span>password<span class=w> </span>=<span class=w> </span>getInput(<span class=s1>&#39;password&#39;</span>)<span class=w>
+</span><span class=w>  </span>usernameAndPassword<span class=w> </span>=<span class=w> </span>b64encode(bytes(f<span class=s1>&#39;{username}:{password}&#39;</span><span class=p>,</span>encoding=<span class=s1>&#39;ascii&#39;</span>)).decode(<span class=s1>&#39;ascii&#39;</span>)<span class=w>
+</span><span class=w>  </span>setOutput(<span class=s1>&#39;basicAuthHeader&#39;</span><span class=p>,</span><span class=w> </span><span class=s2>&#34;Basic &#34;</span>+usernameAndPassword)<span class=w>
+</span><span class=w></span><span class=k>inputProperties</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=c># Username input</span><span class=w>
+</span><span class=w>  </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;username&#39;</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>text<span class=w>
+</span><span class=w>    </span><span class=k>title</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;Username&#39;</span><span class=w>
+</span><span class=w>    </span><span class=k>placeHolder</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;Enter basic authentication usename&#39;</span><span class=w>
+</span><span class=w>    </span><span class=k>required</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>    </span><span class=k>bindable</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>  </span><span class=c># Password input</span><span class=w>
+</span><span class=w>  </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;password&#39;</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>password<span class=w>
+</span><span class=w>    </span><span class=k>title</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;Password&#39;</span><span class=w>
+</span><span class=w>    </span><span class=k>placeHolder</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;Enter basic authentication password&#39;</span><span class=w>
+</span><span class=w>    </span><span class=k>defaultValue</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;&#39;</span><span class=w>
+</span><span class=w>    </span><span class=k>required</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>    </span><span class=k>bindable</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w></span><span class=k>outputProperties</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>basicAuthHeader<span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>label<span class=w>
+</span><span class=w>    </span><span class=k>title</span><span class=p>:</span><span class=w> </span>Basic<span class=w> </span>Authentication<span class=w> </span>Header<span class=w>
+</span></code></pre></div></div></section><section class=page id=sleep><h1><a href=#sleep>Sleep</a></h1><div class=content><p>Sleeps for a custom number of seconds set by <code>sleepTime</code>:</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml>---<span class=w>
+</span><span class=w></span><span class=k>runtime</span><span class=p>:</span><span class=w> </span>shell<span class=w>
+</span><span class=w></span><span class=k>code</span><span class=p>:</span><span class=w> </span><span class=sd>|
+</span><span class=sd>  sleep $sleepTime</span><span class=w>
+</span><span class=w></span><span class=k>inputProperties</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;sleepTime&#39;</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>number<span class=w>
+</span><span class=w>    </span><span class=k>title</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;Sleep Time (s)&#39;</span><span class=w>
+</span><span class=w>    </span><span class=k>placeHolder</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;Number input&#39;</span><span class=w>
+</span><span class=w>    </span><span class=k>minimum</span><span class=p>:</span><span class=w> </span><span class=m>1</span><span class=w>
+</span><span class=w>    </span><span class=k>maximum</span><span class=p>:</span><span class=w> </span><span class=m>600</span><span class=w>
+</span><span class=w>    </span><span class=k>defaultValue</span><span class=p>:</span><span class=w> </span><span class=m>30</span><span class=w>
+</span></code></pre></div></div></section><section class=page id=servicebroker><h1><a href=#servicebroker>Service Broker</a></h1><div class=content><p>Service Broker Examples</p></div></section><section class=page id=orchestrator><h1><a href=#orchestrator>Orchestrator</a></h1><div class=content><p>Orchestrator</p></div></section></div></body></html>
