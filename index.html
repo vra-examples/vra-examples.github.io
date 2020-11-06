@@ -1,4 +1,211 @@
-<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en-us lang=en-us><head><meta name=generator content="Hugo 0.74.3"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>vRealize Automation Examples</title><link rel="shortcut icon" href=favicon.ico type=image/x-icon><link href="https://fonts.googleapis.com/css?family=Open+Sans" rel=stylesheet><link rel=stylesheet href=https://vra-examples.github.io/css/styles.css><link rel=stylesheet href=https://vra-examples.github.io/css/syntax.css><link href=/index.xml rel=alternate type=application/rss+xml title="vRealize Automation Examples"></head><body><div class="sidebar sidebar-default"><div class=navigation><img src=images/vra-logo.png style=width:20%><img src=images/vra-cloud-assembly-logo.png style=width:20%><img src=images/vra-code-stream-logo.png style=width:20%><img src=images/vra-service-broker-logo.png style=width:20%><h1 class=site-title><a href=https://vra-examples.github.io/>vRealize Automation Examples</a></h1><nav class=internal><ul><li><a href=#cloudassembly>Cloud Assembly</a><ul><li><a href=#cloudtemplates>Cloud Templates</a><ul><li><a href=#ubuntudockerhost>Ubuntu Docker Host</a></li></ul></li><li><a href=#extensibility>Extensibility</a><ul><li><a href=#customvmname>Custom VM Name</a></li></ul></li></ul></li><li><a href=#codestream>Code Stream</a><ul><li><a href=#pipelines>Pipelines</a></li><li><a href=#customintegrations>Custom Integrations</a><ul><li><a href=#basicauth>Basic Auth</a></li><li><a href=#sleep>Sleep</a></li></ul></li></ul></li><li><a href=#servicebroker>Service Broker</a></li><li><a href=#orchestrator>Orchestrator</a></li><li><a href=#saltstackconfig>SaltStack Config</a><ul><li><a href=#saltstates>Salt States</a><ul><li><a href=#apacheinstallsaltstate>Apache Install Salt State</a></li></ul></li></ul></li></ul></nav><nav class=external><div class=external-title></div><ul id=shortcuts><li><a href=https://github.com/vra-examples/vra-examples target=_blank rel=noopener>Got an example? Contribute!</a></li></ul></nav></div><div class=version>generated on Nov 6, 2020</div></div><div class=content><section class=page id=cloudassembly><h1><a href=#cloudassembly>Cloud Assembly</a></h1><div class=content><p>Cloud Assembly Examples</p></div></section><section class=page id=cloudtemplates><h1><a href=#cloudtemplates>Cloud Templates</a></h1><div class=content><p>VMware Cloud Templates</p></div></section><section class=page id=ubuntudockerhost><h1><a href=#ubuntudockerhost>Ubuntu Docker Host</a></h1><div class=content><p>Deploy an Ubuntu 18.04 template and install Docker. Configure the Docker service and firewall to allow remote connections.</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>formatVersion</span><span class=p>:</span><span class=w> </span><span class=m>1</span><span class=w>
+<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en-us lang=en-us><head><meta name=generator content="Hugo 0.74.3"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>vRealize Automation Examples</title><link rel="shortcut icon" href=favicon.ico type=image/x-icon><link href="https://fonts.googleapis.com/css?family=Open+Sans" rel=stylesheet><link rel=stylesheet href=https://vra-examples.github.io/css/styles.css><link rel=stylesheet href=https://vra-examples.github.io/css/syntax.css><link href=/index.xml rel=alternate type=application/rss+xml title="vRealize Automation Examples"></head><body><div class="sidebar sidebar-default"><div class=navigation><img src=images/vra-logo.png style=width:20%><img src=images/vra-cloud-assembly-logo.png style=width:20%><img src=images/vra-code-stream-logo.png style=width:20%><img src=images/vra-service-broker-logo.png style=width:20%><h1 class=site-title><a href=https://vra-examples.github.io/>vRealize Automation Examples</a></h1><nav class=internal><ul><li><a href=#cloudassembly>Cloud Assembly</a><ul><li><a href=#cloudtemplates>Cloud Templates</a><ul><li><a href=#commentedcloudtemplate>Commented Cloud Template</a></li><li><a href=#ubuntudockerhost>Ubuntu Docker Host</a></li></ul></li><li><a href=#extensibility>Extensibility</a><ul><li><a href=#customvmname>Custom VM Name</a></li></ul></li></ul></li><li><a href=#codestream>Code Stream</a><ul><li><a href=#pipelines>Pipelines</a></li><li><a href=#customintegrations>Custom Integrations</a><ul><li><a href=#basicauth>Basic Auth</a></li><li><a href=#sleep>Sleep</a></li></ul></li></ul></li><li><a href=#servicebroker>Service Broker</a></li><li><a href=#orchestrator>Orchestrator</a></li><li><a href=#saltstackconfig>SaltStack Config</a><ul><li><a href=#saltstates>Salt States</a><ul><li><a href=#apacheinstallsaltstate>Apache Install Salt State</a></li></ul></li></ul></li></ul></nav><nav class=external><div class=external-title></div><ul id=shortcuts><li><a href=https://github.com/vra-examples/vra-examples target=_blank rel=noopener>Got an example? Contribute!</a></li></ul></nav></div><div class=version>generated on Nov 6, 2020</div></div><div class=content><section class=page id=cloudassembly><h1><a href=#cloudassembly>Cloud Assembly</a></h1><div class=content><p>Cloud Assembly Examples</p></div></section><section class=page id=cloudtemplates><h1><a href=#cloudtemplates>Cloud Templates</a></h1><div class=content><p>VMware Cloud Templates</p></div></section><section class=page id=commentedcloudtemplate><h1><a href=#commentedcloudtemplate>Commented Cloud Template</a></h1><div class=content><p>This blueprint shows various ways to enhance a blueprint via YAML with explanations of the various parameters. There are comments throughout for your refernce. You can clone this blueprint and then experiment a bit with YAML if you want. If you are totally new to YAML then you can visit <a href=https://yaml.org/>https://yaml.org/</a> to get more familiar with it.</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=c># This blueprint shows various ways to enhance a blueprint via YAML with explanations of the various parameters                      *</span><span class=w>
+</span><span class=w></span><span class=c># There are comments throughout for your refernce.                                                                                   *</span><span class=w>
+</span><span class=w></span><span class=c># You can clone this blueprint and then experiment a bit with YAML if you want. If you are totally new to YAML                       *</span><span class=w>
+</span><span class=w></span><span class=c># then you can visit https://yaml.org/ to get more familiar with it.                                                                 *</span><span class=w>
+</span><span class=w></span><span class=c># ** PLEASE DO NOT MODIFY THIS BLUEPRINT &gt;&gt; CLONE IT!!**                                                                             *</span><span class=w>
+</span><span class=w></span><span class=c># References:                                                                                                                        *</span><span class=w>
+</span><span class=w></span><span class=c># https://docs.vmware.com/en/VMware-Cloud-Assembly/services/Using-and-Managing/GUID-12F0BC64-6391-4E5F-AA48-C5959024F3EB.html        *</span><span class=w>
+</span><span class=w></span><span class=c># https://blogs.vmware.com/management/2019/02/blueprinting-expressions-in-cloud-assembly.html                                        *</span><span class=w>
+</span><span class=w></span><span class=c># There are some blueprint code examples here:                                                                                       *</span><span class=w>
+</span><span class=w></span><span class=c># https://docs.vmware.com/en/VMware-Cloud-Assembly/services/Using-and-Managing/GUID-4717026E-D11A-48FE-93A9-E409A623C723.html        *</span><span class=w>
+</span><span class=w></span><span class=c># This blueprint will deploy minimum of 3 Virtual Machines and run scripts to install packages.                                      *</span><span class=w>
+</span><span class=w></span><span class=c>#*************************************************************************************************************************************</span><span class=w>
+</span><span class=w></span><span class=k>name</span><span class=p>:</span><span class=w> </span>Blueprint<span class=w> </span>with<span class=w> </span>Comments<span class=w>
+</span><span class=w></span><span class=c># Dont forget to give your blueprint a useful name!</span><span class=w>
+</span><span class=w></span><span class=k>formatVersion</span><span class=p>:</span><span class=w> </span><span class=m>1</span><span class=w>
+</span><span class=w></span><span class=k>version</span><span class=p>:</span><span class=w> </span><span class=m>1</span><span class=w>
+</span><span class=w></span><span class=c># version is needed if you are going to source control the blueprint in GIT.</span><span class=w>
+</span><span class=w></span><span class=k>inputs</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=c># Inputs section is where you define inputs that the user will be able to choose from at deployment time.</span><span class=w>
+</span><span class=w>  </span><span class=c># There are a number of various methods by which we can present inputs to the user. Inputs can also influence</span><span class=w>
+</span><span class=w>  </span><span class=c># placement decisions and configuration. There are a few examples below of various input types and how to use them.</span><span class=w>
+</span><span class=w>  </span><span class=k>platform</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>string<span class=w>
+</span><span class=w>    </span><span class=c># The inputs section is where we list out our inputs that the user can choose from at deployment time.</span><span class=w>
+</span><span class=w>    </span><span class=k>title</span><span class=p>:</span><span class=w> </span>Deploy<span class=w> </span>to<span class=w>
+</span><span class=w>    </span><span class=k>oneOf</span><span class=p>:</span><span class=w>
+</span><span class=w>      </span><span class=c># This particular section lists out the various cloud endpoints that the user can choose from. </span><span class=w>
+</span><span class=w>      </span><span class=c># The input variable will be referenced in the resources section. Title is what the user sees, const is the tag for the endpoints.</span><span class=w>
+</span><span class=w>      </span>- <span class=k>title</span><span class=p>:</span><span class=w> </span>AWS<span class=w>
+</span><span class=w>        </span><span class=k>const</span><span class=p>:</span><span class=w> </span>aws<span class=w>
+</span><span class=w>      </span>- <span class=k>title</span><span class=p>:</span><span class=w> </span>Azure<span class=w>
+</span><span class=w>        </span><span class=k>const</span><span class=p>:</span><span class=w> </span>azure<span class=w>
+</span><span class=w>      </span>- <span class=k>title</span><span class=p>:</span><span class=w> </span>vSphere<span class=w>
+</span><span class=w>        </span><span class=k>const</span><span class=p>:</span><span class=w> </span>vsphere<span class=w>
+</span><span class=w>    </span><span class=k>default</span><span class=p>:</span><span class=w> </span>vsphere<span class=w>
+</span><span class=w>  </span><span class=k>image</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>string<span class=w>
+</span><span class=w>    </span><span class=c>#String with enumeration -enum , enum and oneOf are slightly differnet in that oneOf allows for a friendly title.</span><span class=w>
+</span><span class=w>    </span><span class=k>title</span><span class=p>:</span><span class=w> </span>Operating<span class=w> </span>System<span class=w>
+</span><span class=w>    </span><span class=k>description</span><span class=p>:</span><span class=w> </span>Which<span class=w> </span>OS<span class=w> </span>to<span class=w> </span>use<span class=w>
+</span><span class=w>    </span><span class=k>enum</span><span class=p>:</span><span class=w>
+</span><span class=w>      </span>- Ubuntu<span class=w>
+</span><span class=w>      </span>- Windows<span class=w>
+</span><span class=w>  </span><span class=c># Common situation where you can list your various Flavor Mappings, if a user chooses Ubuntu and the </span><span class=w>
+</span><span class=w>  </span><span class=c># system deploys to AWS for instance, then the AMI that is listed in Flavor Mapping &#34;Ubuntu&#34; would be chosen for AWS. </span><span class=w>
+</span><span class=w>  </span><span class=k>dbenvsize</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>string<span class=w>
+</span><span class=w>    </span><span class=k>enum</span><span class=p>:</span><span class=w>
+</span><span class=w>      </span>- Small<span class=w>
+</span><span class=w>      </span>- Large<span class=w>
+</span><span class=w>  </span><span class=k>Mtags</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>array<span class=w>
+</span><span class=w>    </span><span class=c># Array of objects - syntax: $&#39;{[&#39;key1&#39;, &#39;key2&#39;]} , try clicking the Test button and you will see how the array appears to a user during deployment.</span><span class=w>
+</span><span class=w>    </span><span class=k>title</span><span class=p>:</span><span class=w> </span>Tags<span class=w>
+</span><span class=w>    </span><span class=k>description</span><span class=p>:</span><span class=w> </span>tags<span class=w> </span>to<span class=w> </span>apply<span class=w> </span>to<span class=w> </span>machines<span class=w>
+</span><span class=w>    </span><span class=k>items</span><span class=p>:</span><span class=w>
+</span><span class=w>      </span><span class=k>type</span><span class=p>:</span><span class=w> </span>object<span class=w>
+</span><span class=w>      </span><span class=k>properties</span><span class=p>:</span><span class=w>
+</span><span class=w>        </span><span class=k>key</span><span class=p>:</span><span class=w>
+</span><span class=w>          </span><span class=k>type</span><span class=p>:</span><span class=w> </span>string<span class=w>
+</span><span class=w>          </span><span class=k>title</span><span class=p>:</span><span class=w> </span>Key<span class=w>
+</span><span class=w>        </span><span class=k>value</span><span class=p>:</span><span class=w>
+</span><span class=w>          </span><span class=k>type</span><span class=p>:</span><span class=w> </span>string<span class=w>
+</span><span class=w>          </span><span class=k>title</span><span class=p>:</span><span class=w> </span>Value<span class=w>
+</span><span class=w>  </span><span class=k>username</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>string<span class=w>
+</span><span class=w>    </span><span class=c># Inputs like username and password allow the user to define these parameters at request time.</span><span class=w>
+</span><span class=w>    </span><span class=c># These types of inputs can also be helpful for configurations within cloud-init scripts, cloud-init is </span><span class=w>
+</span><span class=w>    </span><span class=c># described below in the resources section of the blueprint.</span><span class=w>
+</span><span class=w>    </span><span class=k>minLength</span><span class=p>:</span><span class=w> </span><span class=m>4</span><span class=w>
+</span><span class=w>    </span><span class=k>maxLength</span><span class=p>:</span><span class=w> </span><span class=m>20</span><span class=w>
+</span><span class=w>    </span><span class=k>pattern</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;[a-z]+&#39;</span><span class=w>
+</span><span class=w>    </span><span class=k>title</span><span class=p>:</span><span class=w> </span>Database<span class=w> </span>Username<span class=w>
+</span><span class=w>    </span><span class=k>description</span><span class=p>:</span><span class=w> </span>Database<span class=w> </span>Username<span class=w>
+</span><span class=w>  </span><span class=k>userpassword</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>string<span class=w>
+</span><span class=w>    </span><span class=k>pattern</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;[a-z0-9A-Z@#$]+&#39;</span><span class=w>
+</span><span class=w>    </span><span class=k>encrypted</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>    </span><span class=k>title</span><span class=p>:</span><span class=w> </span>Database<span class=w> </span>Password<span class=w>
+</span><span class=w>    </span><span class=k>description</span><span class=p>:</span><span class=w> </span>Database<span class=w> </span>Password<span class=w>
+</span><span class=w>  </span><span class=k>databaseDiskSize</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>number<span class=w>
+</span><span class=w>    </span><span class=c># This input allows the user to choose the disk size.</span><span class=w>
+</span><span class=w>    </span><span class=k>default</span><span class=p>:</span><span class=w> </span><span class=m>4</span><span class=w>
+</span><span class=w>    </span><span class=k>maximum</span><span class=p>:</span><span class=w> </span><span class=m>10</span><span class=w>
+</span><span class=w>    </span><span class=k>title</span><span class=p>:</span><span class=w> </span>MySQL<span class=w> </span>Data<span class=w> </span>Disk<span class=w> </span>Size<span class=w>
+</span><span class=w>    </span><span class=k>description</span><span class=p>:</span><span class=w> </span>Size<span class=w> </span>of<span class=w> </span>database<span class=w> </span>disk<span class=w>
+</span><span class=w>  </span><span class=k>clusterSize</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=c># This clusersize will be refernced in a count.index input below in WebTier. </span><span class=w>
+</span><span class=w>    </span><span class=c># If a user chooses small from the dropdown then only 2 machines will be deployed.</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>string<span class=w>
+</span><span class=w>    </span><span class=k>enum</span><span class=p>:</span><span class=w>
+</span><span class=w>      </span>- small<span class=w>
+</span><span class=w>      </span>- medium<span class=w>
+</span><span class=w>      </span>- large<span class=w>
+</span><span class=w>    </span><span class=k>title</span><span class=p>:</span><span class=w> </span>Wordpress<span class=w> </span>Cluster<span class=w> </span>Size<span class=w>
+</span><span class=w>    </span><span class=k>description</span><span class=p>:</span><span class=w> </span>Wordpress<span class=w> </span>Cluster<span class=w> </span>Size<span class=w>
+</span><span class=w>  </span><span class=k>archiveDiskSize</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>number<span class=w>
+</span><span class=w>    </span><span class=k>default</span><span class=p>:</span><span class=w> </span><span class=m>4</span><span class=w>
+</span><span class=w>    </span><span class=k>maximum</span><span class=p>:</span><span class=w> </span><span class=m>10</span><span class=w>
+</span><span class=w>    </span><span class=k>title</span><span class=p>:</span><span class=w> </span>Wordpress<span class=w> </span>Archive<span class=w> </span>Disk<span class=w> </span>Size<span class=w>
+</span><span class=w>    </span><span class=k>description</span><span class=p>:</span><span class=w> </span>Size<span class=w> </span>of<span class=w> </span>Wordpress<span class=w> </span>archive<span class=w> </span>disk<span class=w>
+</span><span class=w></span><span class=k>resources</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=c># The resources section is where we configure the machines, networks, volumes and other objects that will get deployed.</span><span class=w>
+</span><span class=w>  </span><span class=k>DBTier</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>Cloud.Machine<span class=w>
+</span><span class=w>    </span><span class=k>properties</span><span class=p>:</span><span class=w>
+</span><span class=w>      </span><span class=c># Properties section is where parameterize and configure the resource. </span><span class=w>
+</span><span class=w>      </span><span class=k>name</span><span class=p>:</span><span class=w> </span>mysql<span class=w>
+</span><span class=w>      </span><span class=c># Name of virtual machine</span><span class=w>
+</span><span class=w>      </span><span class=c># Image and Flavor could also be variables and inputs as well. # Image Mapping from the Infrastructure tab, </span><span class=w>
+</span><span class=w>      </span><span class=c># this is one way that vRA abstracts various &#34;clouds&#34; so the system can be cloud agnostic.</span><span class=w>
+</span><span class=w>      </span><span class=k>image</span><span class=p>:</span><span class=w> </span>CloudImage<span class=w>
+</span><span class=w>      </span><span class=c># Specifies the cloud image, depending on where the machine goes will determine what image is actually used across </span><span class=w>
+</span><span class=w>      </span><span class=c># clouds. Pretty neat!</span><span class=w>
+</span><span class=w>      </span><span class=k>flavor</span><span class=p>:</span><span class=w> </span>small<span class=w>
+</span><span class=w>      </span><span class=c># Flavor Mapping - basically t-shrirt sizing for multi-cloud.</span><span class=w>
+</span><span class=w>      </span><span class=k>constraints</span><span class=p>:</span><span class=w>
+</span><span class=w>        </span>- <span class=k>tag</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${&#34;cloud:&#34; + to_lower(input.platform)}&#39;</span><span class=w>
+</span><span class=w>      </span><span class=c># This constraint is using a tag that will specify the cloud, then lower case the input to match the tag case. </span><span class=w>
+</span><span class=w>      </span><span class=c># there are other function operators besides to_lower, some of them are: to_upper, merge, trim, replace..</span><span class=w>
+</span><span class=w>      </span><span class=k>tags</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${input.Mtags}&#39;</span><span class=w>
+</span><span class=w>      </span><span class=k>count</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${input.dbenvsize == &#34;Small&#34; ? 1 : 2}&#39;</span><span class=w> </span><span class=c># You can use conditions to determine things like size of the environment. </span><span class=w>
+</span><span class=w>      </span><span class=c># In this example if you choose &#34;small&#34; then count = 1, if you choose the other option then it defaults to 2 machines. </span><span class=w>
+</span><span class=w>      </span><span class=c># You could also do something like: &#39;${input.count &lt; 5 &amp;&amp; input.size == &#39;small&#39;} , or &#39;${input.count &lt; 2 ? &#34;small&#34; : &#34;large}&#39;. </span><span class=w>
+</span><span class=w>      </span><span class=k>networks</span><span class=p>:</span><span class=w>
+</span><span class=w>        </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${resource.WP_Network.name}&#39;</span><span class=w>
+</span><span class=w>          </span><span class=c>#Resource variables let you bind to resource properties from other resources ex. - ${resource.app[0].id}</span><span class=w>
+</span><span class=w>          </span><span class=k>network</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${resource.WP_Network.id}&#39;</span><span class=w>
+</span><span class=w>      </span><span class=k>remoteAccess</span><span class=p>:</span><span class=w>
+</span><span class=w>        </span><span class=c>#remote access property enables you to specify a remote access mechanism for the deployed machine</span><span class=w>
+</span><span class=w>        </span><span class=k>authentication</span><span class=p>:</span><span class=w> </span>usernamePassword<span class=w>
+</span><span class=w>        </span><span class=k>username</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${input.username}&#39;</span><span class=w>
+</span><span class=w>        </span><span class=k>password</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${input.userpassword}&#39;</span><span class=w>
+</span><span class=w>      </span><span class=k>ACMECorpID</span><span class=p>:</span><span class=w> </span><span class=m>9333</span><span class=w> </span><span class=c>#You can add custom properties to the YAML. Then these properties can be used to kick off an extensiblity subscription for instance. </span><span class=w>
+</span><span class=w>      </span><span class=c># In the section below you will see a bit of code under a heading &#34;cloudConfig&#34;, you can use cloud config to run commands in the Operating System of the machine , cross cloud. </span><span class=w>
+</span><span class=w>      </span><span class=c># Examples include, setting a hostname, generating ssh private keys, installing packages.</span><span class=w>
+</span><span class=w>      </span><span class=c># For more information on cloud-init - https://cloudinit.readthedocs.io/en/latest/</span><span class=w>
+</span><span class=w>      </span><span class=k>cloudConfig</span><span class=p>:</span><span class=w> </span><span class=sd>|
+</span><span class=sd>        #cloud-config</span><span class=w>
+</span><span class=w>        </span><span class=k>repo_update</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>        </span><span class=k>repo_upgrade</span><span class=p>:</span><span class=w> </span>all<span class=w>
+</span><span class=w>
+</span><span class=w>        </span><span class=k>packages</span><span class=p>:</span><span class=w>
+</span><span class=w>         </span>- mysql-server<span class=w>
+</span><span class=w>
+</span><span class=w>        </span><span class=k>runcmd</span><span class=p>:</span><span class=w>
+</span><span class=w>         </span>- sed<span class=w> </span>-e<span class=w> </span><span class=s1>&#39;/bind-address/ s/^#*/#/&#39;</span><span class=w> </span>-i<span class=w> </span>/etc/mysql/mysql.conf.d/mysqld.cnf<span class=w>
+</span><span class=w>         </span>- service<span class=w> </span>mysql<span class=w> </span>restart<span class=w>
+</span><span class=w>         </span>- mysql<span class=w> </span>-e<span class=w> </span><span class=s2>&#34;GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;mysqlpassword&#39;;&#34;</span><span class=w>
+</span><span class=w>         </span>- mysql<span class=w> </span>-e<span class=w> </span><span class=s2>&#34;FLUSH PRIVILEGES;&#34;</span><span class=w>
+</span><span class=w>      </span><span class=k>attachedDisks</span><span class=p>:</span><span class=w> </span><span class=p>[]</span><span class=w>
+</span><span class=w>  </span><span class=k>WebTier</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>Cloud.Machine<span class=w>
+</span><span class=w>    </span><span class=k>properties</span><span class=p>:</span><span class=w>
+</span><span class=w>      </span><span class=k>name</span><span class=p>:</span><span class=w> </span>wordpress<span class=w>
+</span><span class=w>      </span><span class=c># Name of the virtual machine</span><span class=w>
+</span><span class=w>      </span><span class=k>image</span><span class=p>:</span><span class=w> </span>CloudImage<span class=w>
+</span><span class=w>      </span><span class=c># Image Mapping from the Infrastructure tab, this is one way that vRA abstracts &#34;clouds&#34; and become more agnostic.</span><span class=w>
+</span><span class=w>      </span><span class=k>flavor</span><span class=p>:</span><span class=w> </span>small<span class=w>
+</span><span class=w>      </span><span class=c># Flavor Mapping - basically t-shrirt sizing for multi-cloud.</span><span class=w>
+</span><span class=w>      </span><span class=k>count</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${input.clusterSize== &#34;small&#34; ? 2 : (input.clusterSize == &#34;medium&#34; ? 3 : 4)}&#39;</span><span class=w>
+</span><span class=w>      </span><span class=c># This is a cluster count index example, the two options are small, medium and large clusters. Small deploys 2 machines,</span><span class=w>
+</span><span class=w>      </span><span class=c># Medium deploys 3 machines , and it is implied that Large would deploy 4 machines so we do not need to specify large in the code</span><span class=w>
+</span><span class=w>      </span><span class=k>tags</span><span class=p>:</span><span class=w>
+</span><span class=w>        </span>- <span class=k>key</span><span class=p>:</span><span class=w> </span>cas.requestedBy<span class=w>
+</span><span class=w>          </span><span class=k>value</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${env.requestedBy}&#39;</span><span class=w> </span><span class=c># Environmental variables can be helpful if you want to get info about the object displayed in the properties section of the deployment, other examples - {env.blueprintID}</span><span class=w>
+</span><span class=w>      </span><span class=k>ACMECorpID</span><span class=p>:</span><span class=w> </span><span class=m>9333</span><span class=w>
+</span><span class=w>      </span><span class=k>constraints</span><span class=p>:</span><span class=w>
+</span><span class=w>        </span>- <span class=k>tag</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${&#34;cloud:&#34; + to_lower(input.platform)}&#39;</span><span class=w> </span><span class=c># This constaint will allow for the YAML to present a Upper-Case as display but the tags on the endpoints can be lower-case. </span><span class=w>
+</span><span class=w>      </span><span class=c># This is important because the options in a list need to match the &#34;case&#34; of the tag.</span><span class=w>
+</span><span class=w>      </span><span class=k>networks</span><span class=p>:</span><span class=w>
+</span><span class=w>        </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${resource.WP_Network.name}&#39;</span><span class=w>
+</span><span class=w>          </span><span class=c># This is a resource variable, lets you bind to resource properties from other resources, in this case the network that gets deployed.</span><span class=w>
+</span><span class=w>          </span><span class=k>network</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${resource.WP_Network.id}&#39;</span><span class=w>
+</span><span class=w>      </span><span class=k>cloudConfig</span><span class=p>:</span><span class=w> </span><span class=sd>|
+</span><span class=sd>        #cloud-config</span><span class=w>
+</span><span class=w>        </span><span class=k>repo_update</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>        </span><span class=k>repo_upgrade</span><span class=p>:</span><span class=w> </span>all<span class=w>
+</span><span class=w>
+</span><span class=w>        </span><span class=k>packages</span><span class=p>:</span><span class=w>
+</span><span class=w>          </span>- apache2<span class=w>
+</span><span class=w>          </span>- php<span class=w>
+</span><span class=w>          </span>- php-mysql<span class=w>
+</span><span class=w>          </span>- libapache2-mod-php<span class=w>
+</span><span class=w>          </span>- php-mcrypt<span class=w>
+</span><span class=w>          </span>- mysql-client<span class=w>
+</span><span class=w>         
+</span><span class=w>        </span><span class=k>runcmd</span><span class=p>:</span><span class=w>
+</span><span class=w>          </span>- mkdir<span class=w> </span>-p<span class=w> </span>/var/www/html/mywordpresssite<span class=w> </span><span class=cp>&amp;&amp;</span><span class=w> </span>cd<span class=w> </span>/var/www/html<span class=w> </span><span class=cp>&amp;&amp;</span><span class=w> </span>wget<span class=w> </span>https<span class=p>:</span>//wordpress.org/latest.tar.gz<span class=w> </span><span class=cp>&amp;&amp;</span><span class=w> </span>tar<span class=w> </span>-xzf<span class=w> </span>/var/www/html/latest.tar.gz<span class=w> </span>-C<span class=w> </span>/var/www/html/mywordpresssite<span class=w> </span>--strip-components<span class=w> </span><span class=m>1</span><span class=w>
+</span><span class=w>          </span>- i=<span class=m>0</span>;<span class=w> </span>while<span class=w> </span><span class=p>[</span><span class=w> </span>$i<span class=w> </span>-le<span class=w> </span><span class=m>5</span><span class=w> </span><span class=p>]</span>;<span class=w> </span>do<span class=w> </span>mysql<span class=w> </span>--connect-timeout=<span class=m>3</span><span class=w> </span>-h<span class=w> </span>${DBTier.networks<span class=p>[</span><span class=m>0</span><span class=p>]</span>.address}<span class=w> </span>-u<span class=w> </span>root<span class=w> </span>-pmysqlpassword<span class=w> </span>-e<span class=w> </span><span class=s2>&#34;SHOW STATUS;&#34;</span><span class=w> </span><span class=cp>&amp;&amp;</span><span class=w> </span>break<span class=w> </span>||<span class=w> </span>sleep<span class=w> </span><span class=m>15</span>;<span class=w> </span>i=$((i<span class=m>+1</span>));<span class=w> </span>done<span class=w>
+</span><span class=w>          </span>- mysql<span class=w> </span>-u<span class=w> </span>root<span class=w> </span>-pmysqlpassword<span class=w> </span>-h<span class=w> </span>${resource.DBTier.networks<span class=p>[</span><span class=m>0</span><span class=p>]</span>.address}<span class=w> </span>-e<span class=w> </span><span class=s2>&#34;create database wordpress_blog;&#34;</span><span class=w>
+</span><span class=w>          </span>- mv<span class=w> </span>/var/www/html/mywordpresssite/wp-config-sample.php<span class=w> </span>/var/www/html/mywordpresssite/wp-config.php<span class=w>
+</span><span class=w>          </span>- sed<span class=w> </span>-i<span class=w> </span>-e<span class=w> </span>s/<span class=s2>&#34;define(&#39;DB_NAME&#39;, &#39;database_name_here&#39;);&#34;</span>/<span class=s2>&#34;define(&#39;DB_NAME&#39;, &#39;wordpress_blog&#39;);&#34;</span>/<span class=w> </span>/var/www/html/mywordpresssite/wp-config.php<span class=w> </span><span class=cp>&amp;&amp;</span><span class=w> </span>sed<span class=w> </span>-i<span class=w> </span>-e<span class=w> </span>s/<span class=s2>&#34;define(&#39;DB_USER&#39;, &#39;username_here&#39;);&#34;</span>/<span class=s2>&#34;define(&#39;DB_USER&#39;, &#39;root&#39;);&#34;</span>/<span class=w> </span>/var/www/html/mywordpresssite/wp-config.php<span class=w> </span><span class=cp>&amp;&amp;</span><span class=w> </span>sed<span class=w> </span>-i<span class=w> </span>-e<span class=w> </span>s/<span class=s2>&#34;define(&#39;DB_PASSWORD&#39;, &#39;password_here&#39;);&#34;</span>/<span class=s2>&#34;define(&#39;DB_PASSWORD&#39;, &#39;mysqlpassword&#39;);&#34;</span>/<span class=w> </span>/var/www/html/mywordpresssite/wp-config.php<span class=w> </span><span class=cp>&amp;&amp;</span><span class=w> </span>sed<span class=w> </span>-i<span class=w> </span>-e<span class=w> </span>s/<span class=s2>&#34;define(&#39;DB_HOST&#39;, &#39;localhost&#39;);&#34;</span>/<span class=s2>&#34;define(&#39;DB_HOST&#39;, &#39;${resource.DBTier.networks[0].address}&#39;);&#34;</span>/<span class=w> </span>/var/www/html/mywordpresssite/wp-config.php<span class=w>
+</span><span class=w>          </span>- service<span class=w> </span>apache2<span class=w> </span>reload<span class=w>
+</span><span class=w>  </span><span class=k>WP_Network</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>Cloud.Network<span class=w>
+</span><span class=w>    </span><span class=k>properties</span><span class=p>:</span><span class=w>
+</span><span class=w>      </span><span class=k>name</span><span class=p>:</span><span class=w> </span>WP_Network<span class=w>
+</span><span class=w>      </span><span class=k>networkType</span><span class=p>:</span><span class=w> </span>existing<span class=w>
+</span><span class=w></span><span class=c># Parameter &#34;networkType&#34; selects an existing network in this case, you could also use a constraint tag to limit the network to a tagged network, for instance a &#34;PCI&#34; tagged network.</span><span class=w>
+</span><span class=w></span><span class=c># There are other networkTypes, e.g., private or public. </span><span class=w>
+</span><span class=w></span><span class=c>#****************************************************************************************************************************************************************</span><span class=w>
+</span><span class=w></span><span class=c># Blueprints via API - example, you can create blueprints etc, or you can query to get input schema you are intending to request:</span><span class=w>
+</span><span class=w></span><span class=c># GET https://api.mgmt.cloud.vmware.com/blueprint/api/blueprints/{blueprint_id}/inputs-schema</span><span class=w>
+</span><span class=w></span><span class=c># Link to the Swagger Docs: https://www.mgmt.cloud.vmware.com/blueprint/api/swagger/swagger-ui.html</span><span class=w>
+</span></code></pre></div></div></section><section class=page id=ubuntudockerhost><h1><a href=#ubuntudockerhost>Ubuntu Docker Host</a></h1><div class=content><p>Deploy an Ubuntu 18.04 template and install Docker. Configure the Docker service and firewall to allow remote connections.</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>formatVersion</span><span class=p>:</span><span class=w> </span><span class=m>1</span><span class=w>
 </span><span class=w></span><span class=k>inputs</span><span class=p>:</span><span class=w>
 </span><span class=w>  </span><span class=k>user</span><span class=p>:</span><span class=w>
 </span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>string<span class=w>
