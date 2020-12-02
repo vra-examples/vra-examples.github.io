@@ -1,4 +1,4 @@
-<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en-us lang=en-us><head><meta name=generator content="Hugo 0.74.3"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>vRealize Automation Examples</title><link rel="shortcut icon" href=favicon.ico type=image/x-icon><link href="https://fonts.googleapis.com/css?family=Open+Sans" rel=stylesheet><link rel=stylesheet href=https://vra-examples.github.io/css/styles.css><link rel=stylesheet href=https://vra-examples.github.io/css/syntax.css><link href=/index.xml rel=alternate type=application/rss+xml title="vRealize Automation Examples"></head><body><div class="sidebar sidebar-default"><div class=navigation><img src=images/vra-logo.png style=width:20%><img src=images/vra-cloud-assembly-logo.png style=width:20%><img src=images/vra-code-stream-logo.png style=width:20%><img src=images/vra-service-broker-logo.png style=width:20%><h1 class=site-title><a href=https://vra-examples.github.io/>vRealize Automation Examples</a></h1><nav class=internal><ul><li><a href=#cloudassembly>Cloud Assembly</a><ul><li><a href=#cloudtemplates>Cloud Templates</a><ul><li><a href=#commentedcloudtemplate>Commented Cloud Template</a></li><li><a href=#ubuntudockerhost>Ubuntu Docker Host</a></li></ul></li><li><a href=#extensibility>Extensibility</a><ul><li><a href=#customvmname>Custom VM Name</a></li></ul></li></ul></li><li><a href=#codestream>Code Stream</a><ul><li><a href=#pipelines>Pipelines</a></li><li><a href=#customintegrations>Custom Integrations</a><ul><li><a href=#basicauth>Basic Auth</a></li><li><a href=#sleep>Sleep</a></li></ul></li></ul></li><li><a href=#servicebroker>Service Broker</a></li><li><a href=#orchestrator>Orchestrator</a></li><li><a href=#saltstackconfig>SaltStack Config</a><ul><li><a href=#saltstates>Salt States</a><ul><li><a href=#apacheinstallsaltstate>Apache Install Salt State</a></li></ul></li></ul></li></ul></nav><nav class=external><div class=external-title></div><ul id=shortcuts><li><a href=https://github.com/vra-examples/vra-examples target=_blank rel=noopener>Got an example? Contribute!</a></li></ul></nav></div><div class=version>generated on Nov 6, 2020</div></div><div class=content><section class=page id=cloudassembly><h1><a href=#cloudassembly>Cloud Assembly</a></h1><div class=content><p>Cloud Assembly Examples</p></div></section><section class=page id=cloudtemplates><h1><a href=#cloudtemplates>Cloud Templates</a></h1><div class=content><p>VMware Cloud Templates</p></div></section><section class=page id=commentedcloudtemplate><h1><a href=#commentedcloudtemplate>Commented Cloud Template</a></h1><div class=content><p>This blueprint shows various ways to enhance a blueprint via YAML with explanations of the various parameters. There are comments throughout for your refernce. You can clone this blueprint and then experiment a bit with YAML if you want. If you are totally new to YAML then you can visit <a href=https://yaml.org/>https://yaml.org/</a> to get more familiar with it.</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>name</span><span class=p>:</span><span class=w> </span>Blueprint<span class=w> </span>with<span class=w> </span>Comments<span class=w>
+<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en-us lang=en-us><head><meta name=generator content="Hugo 0.74.3"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>vRealize Automation Examples</title><link rel="shortcut icon" href=favicon.ico type=image/x-icon><link href="https://fonts.googleapis.com/css?family=Open+Sans" rel=stylesheet><link rel=stylesheet href=https://vra-examples.github.io/css/styles.css><link rel=stylesheet href=https://vra-examples.github.io/css/syntax.css><link href=/index.xml rel=alternate type=application/rss+xml title="vRealize Automation Examples"></head><body><div class="sidebar sidebar-default"><div class=navigation><img src=images/vra-logo.png style=width:20%><img src=images/vra-cloud-assembly-logo.png style=width:20%><img src=images/vra-code-stream-logo.png style=width:20%><img src=images/vra-service-broker-logo.png style=width:20%><h1 class=site-title><a href=https://vra-examples.github.io/>vRealize Automation Examples</a></h1><nav class=internal><ul><li><a href=#cloudassembly>Cloud Assembly</a><ul><li><a href=#cloudtemplates>Cloud Templates</a><ul><li><a href=#commentedcloudtemplate>Commented Cloud Template</a></li><li><a href=#ubuntudockerhost>Ubuntu Docker Host</a></li></ul></li><li><a href=#extensibility>Extensibility</a><ul><li><a href=#customvmname>Custom VM Name</a></li></ul></li><li><a href=#terraformservice>Terraform Service</a><ul><li><a href=#terraformservicevmcsample>Terraform Service for VMC Automation</a></li></ul></li></ul></li><li><a href=#codestream>Code Stream</a><ul><li><a href=#pipelines>Pipelines</a></li><li><a href=#customintegrations>Custom Integrations</a><ul><li><a href=#basicauth>Basic Auth</a></li><li><a href=#sleep>Sleep</a></li></ul></li></ul></li><li><a href=#servicebroker>Service Broker</a></li><li><a href=#orchestrator>Orchestrator</a></li><li><a href=#saltstackconfig>SaltStack Config</a><ul><li><a href=#saltstates>Salt States</a><ul><li><a href=#apacheinstallsaltstate>Apache Install Salt State</a></li></ul></li></ul></li></ul></nav><nav class=external><div class=external-title></div><ul id=shortcuts><li><a href=https://github.com/vra-examples/vra-examples target=_blank rel=noopener>Got an example? Contribute!</a></li></ul></nav></div><div class=version>generated on Dec 2, 2020</div></div><div class=content><section class=page id=cloudassembly><h1><a href=#cloudassembly>Cloud Assembly</a></h1><div class=content><p>Cloud Assembly Examples</p></div></section><section class=page id=cloudtemplates><h1><a href=#cloudtemplates>Cloud Templates</a></h1><div class=content><p>VMware Cloud Templates</p></div></section><section class=page id=commentedcloudtemplate><h1><a href=#commentedcloudtemplate>Commented Cloud Template</a></h1><div class=content><p>This blueprint shows various ways to enhance a blueprint via YAML with explanations of the various parameters. There are comments throughout for your refernce. You can clone this blueprint and then experiment a bit with YAML if you want. If you are totally new to YAML then you can visit <a href=https://yaml.org/>https://yaml.org/</a> to get more familiar with it.</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>name</span><span class=p>:</span><span class=w> </span>Blueprint<span class=w> </span>with<span class=w> </span>Comments<span class=w>
 </span><span class=w></span><span class=c># Dont forget to give your blueprint a useful name!</span><span class=w>
 </span><span class=w></span><span class=k>formatVersion</span><span class=p>:</span><span class=w> </span><span class=m>1</span><span class=w>
 </span><span class=w></span><span class=k>version</span><span class=p>:</span><span class=w> </span><span class=m>1</span><span class=w>
@@ -268,7 +268,155 @@
     <span class=nb>Write-Host</span> <span class=s2>&#34;Setting machine name from </span><span class=p>$(</span><span class=nv>$oldVMName</span><span class=p>)</span><span class=s2> to </span><span class=p>$(</span><span class=nv>$newVMName</span><span class=p>)</span><span class=s2>&#34;</span>
     <span class=k>return</span> <span class=nv>$returnObj</span>
 <span class=p>}</span>
-</code></pre></div></div></section><section class=page id=codestream><h1><a href=#codestream>Code Stream</a></h1><div class=content><p>Code Stream</p></div></section><section class=page id=pipelines><h1><a href=#pipelines>Pipelines</a></h1><div class=content><p>Code Stream Pipelines</p></div></section><section class=page id=customintegrations><h1><a href=#customintegrations>Custom Integrations</a></h1><div class=content><p>To create a Custom Integration:</p><ol><li>Create a new Custom Integration</li><li>Select the Runtime to match the example below</li><li>Replace the placeholder code with the example from below</li><li>Save and version the Custom Integration, ensuring you eanble the “Release Version” toggle</li></ol><p>To use a Custom Integration in a pipeline:</p><ol><li>Configure the Host (you’ll need a Docker endpoint configured for this) and Builder image URL settings in the Workspace tab of your pipeline (e.g. python:latest will work for a Python3 example)</li><li>Add a new Custom task to your Stage, select the name of your integration and configure any inputs</li><li>Use the task outputs to refer to the output values in your later tasks - e.g. <code>stageName.taskName.output.properties.&lt;outputPropertyName></code></li></ol></div></section><section class=page id=basicauth><h1><a href=#basicauth>Basic Auth</a></h1><div class=content><p>To generate a basic authentication header from a username and password in Code Stream you could use a CI task and execute <code>echo -n username:password | base64</code>, then export the result for use later on. A more repeatable way is to create a Custom Integration that takes the two inputs, and returns the encoded header as an output.</p><p>Using the shell runtime:</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml>---<span class=w>
+</code></pre></div></div></section><section class=page id=terraformservice><h1><a href=#terraformservice>Terraform Service</a></h1><div class=content><p>Terraform Service Example</p></div></section><section class=page id=terraformservicevmcsample><h1><a href=#terraformservicevmcsample>Terraform Service for VMC Automation</a></h1><div class=content><p>This example and associated artifacts will allow you to leverage vRA Terraform Service for creating a VMware on AWS&rsquo; SDDC Enviroment with an additional cluster resources
+The following Artifacts are used and/or genrated:</p><ul><li>Terraform File: main.tf<ul><li>Standard Terraform HCL code leveraging Terraform VMC provider.</li></ul></li><li>Terraform File: variables.tf<ul><li>Standard Terraform Variable Definition.</li></ul></li><li>vRA Terraform Cloud Template: CloudTemplate_VMC<ul><li>vRA Cloud Template &ldquo;Front Ends&rdquo; and Enhances the Terraform Configuration Files by using vRA Standard Capabilities.</li></ul></li></ul><p>This Terraform configuration file <em>main.tf</em><br>Please note that the vCenter URL is returned via <em>output</em> instructions defined at the botton:</p><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=o>---</span>
+<span class=n>provider</span> <span class=s2>&#34;vmc&#34;</span> <span class=p>{</span>
+<span class=n>refresh_token</span> <span class=o>=</span> <span class=n>var</span><span class=o>.</span><span class=n>api_token</span>
+<span class=n>org_id</span> <span class=o>=</span> <span class=n>var</span><span class=o>.</span><span class=n>org_id</span>
+<span class=p>}</span>
+
+<span class=n>data</span> <span class=s2>&#34;vmc_connected_accounts&#34;</span> <span class=s2>&#34;my_accounts&#34;</span> <span class=p>{</span>
+<span class=n>account_number</span> <span class=o>=</span> <span class=n>var</span><span class=o>.</span><span class=n>aws_account_number</span>
+<span class=p>}</span>
+
+<span class=n>data</span> <span class=s2>&#34;vmc_customer_subnets&#34;</span> <span class=s2>&#34;my_subnets&#34;</span> <span class=p>{</span>
+<span class=n>connected_account_id</span> <span class=o>=</span> <span class=n>data</span><span class=o>.</span><span class=n>vmc_connected_accounts</span><span class=o>.</span><span class=n>my_accounts</span><span class=o>.</span><span class=n>id</span>
+<span class=n>region</span>               <span class=o>=</span> <span class=n>replace</span><span class=p>(</span><span class=n>upper</span><span class=p>(</span><span class=n>var</span><span class=o>.</span><span class=n>sddc_region</span><span class=p>),</span> <span class=s2>&#34;-&#34;</span><span class=p>,</span> <span class=s2>&#34;_&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=n>resource</span> <span class=s2>&#34;vmc_sddc&#34;</span> <span class=s2>&#34;sddc_terra&#34;</span> <span class=p>{</span>
+<span class=n>sddc_name</span>           <span class=o>=</span> <span class=n>var</span><span class=o>.</span><span class=n>sddc_name</span>
+<span class=n>vpc_cidr</span>            <span class=o>=</span> <span class=n>var</span><span class=o>.</span><span class=n>vpc_cidr</span>
+<span class=n>num_host</span>            <span class=o>=</span> <span class=n>var</span><span class=o>.</span><span class=n>sddc_num_hosts</span>
+<span class=n>provider_type</span>       <span class=o>=</span> <span class=n>var</span><span class=o>.</span><span class=n>provider_type</span>
+<span class=n>region</span>              <span class=o>=</span> <span class=n>data</span><span class=o>.</span><span class=n>vmc_customer_subnets</span><span class=o>.</span><span class=n>my_subnets</span><span class=o>.</span><span class=n>region</span>
+<span class=n>vxlan_subnet</span>        <span class=o>=</span> <span class=n>var</span><span class=o>.</span><span class=n>vxlan_subnet</span>
+<span class=n>delay_account_link</span>  <span class=o>=</span> <span class=n>false</span>
+<span class=n>skip_creating_vxlan</span> <span class=o>=</span> <span class=n>false</span>
+<span class=n>sso_domain</span>          <span class=o>=</span> <span class=s2>&#34;vmc.local&#34;</span>
+<span class=n>deployment_type</span> <span class=o>=</span> <span class=s2>&#34;SingleAZ&#34;</span>
+
+<span class=n>host_instance_type</span> <span class=o>=</span> <span class=n>var</span><span class=o>.</span><span class=n>host_instance_type</span>
+
+<span class=c1>#  storage_capacity = var.storage_capacity</span>
+
+<span class=n>account_link_sddc_config</span> <span class=p>{</span>
+    <span class=n>customer_subnet_ids</span>  <span class=o>=</span> <span class=p>[</span><span class=n>data</span><span class=o>.</span><span class=n>vmc_customer_subnets</span><span class=o>.</span><span class=n>my_subnets</span><span class=o>.</span><span class=n>ids</span><span class=p>[</span><span class=mi>0</span><span class=p>]]</span>
+    <span class=n>connected_account_id</span> <span class=o>=</span> <span class=n>data</span><span class=o>.</span><span class=n>vmc_connected_accounts</span><span class=o>.</span><span class=n>my_accounts</span><span class=o>.</span><span class=n>id</span>
+<span class=p>}</span>
+<span class=n>timeouts</span> <span class=p>{</span>
+    <span class=n>create</span> <span class=o>=</span> <span class=s2>&#34;300m&#34;</span>
+    <span class=n>update</span> <span class=o>=</span> <span class=s2>&#34;300m&#34;</span>
+    <span class=n>delete</span> <span class=o>=</span> <span class=s2>&#34;180m&#34;</span>
+<span class=p>}</span>
+<span class=p>}</span>
+
+<span class=n>resource</span> <span class=s2>&#34;vmc_cluster&#34;</span> <span class=s2>&#34;cluster_1&#34;</span> <span class=p>{</span>
+<span class=n>sddc_id</span> <span class=o>=</span> <span class=n>vmc_sddc</span><span class=o>.</span><span class=n>sddc_terra</span><span class=o>.</span><span class=n>id</span>
+<span class=n>num_hosts</span> <span class=o>=</span> <span class=n>var</span><span class=o>.</span><span class=n>cluster_num_hosts</span>
+<span class=p>}</span>
+
+<span class=n>output</span> <span class=s2>&#34;vc_url&#34;</span> <span class=p>{</span> <span class=n>value</span> <span class=o>=</span> <span class=s2>&#34;${vmc_sddc.sddc_terra.vc_url}&#34;</span> <span class=p>}</span>
+</code></pre></div><blockquote><p><strong>############Several Variables are used in the code above which are defined at <em>variables.tf</em> as displayed below######</strong></p></blockquote><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=o>---</span>
+<span class=n>variable</span> <span class=s2>&#34;api_token&#34;</span> <span class=p>{</span>
+<span class=n>description</span> <span class=o>=</span> <span class=s2>&#34;API token used to authenticate when calling the VMware Cloud Services API.&#34;</span>
+<span class=n>default</span> <span class=o>=</span> <span class=s2>&#34;&#34;</span>
+<span class=p>}</span>
+
+<span class=n>variable</span> <span class=s2>&#34;org_id&#34;</span> <span class=p>{</span>
+<span class=n>description</span> <span class=o>=</span> <span class=s2>&#34;Organization Identifier.&#34;</span>
+<span class=n>default</span> <span class=o>=</span> <span class=s2>&#34;&#34;</span>
+<span class=p>}</span>
+
+<span class=n>variable</span> <span class=s2>&#34;aws_account_number&#34;</span> <span class=p>{</span>
+<span class=n>description</span> <span class=o>=</span> <span class=s2>&#34;The AWS account number.&#34;</span>
+<span class=n>default</span>     <span class=o>=</span> <span class=s2>&#34;&#34;</span>
+<span class=p>}</span>
+
+<span class=n>variable</span> <span class=s2>&#34;sddc_name&#34;</span><span class=p>{</span>
+<span class=n>description</span> <span class=o>=</span> <span class=s2>&#34;Name of SDDC.&#34;</span>
+<span class=n>default</span> <span class=o>=</span> <span class=s2>&#34;Terraform-SDDC-Bis&#34;</span>
+<span class=p>}</span>
+
+<span class=n>variable</span> <span class=s2>&#34;sddc_region&#34;</span> <span class=p>{</span>
+<span class=n>description</span> <span class=o>=</span> <span class=s2>&#34;The AWS  or VMC specific region.&#34;</span>
+<span class=n>default</span>     <span class=o>=</span> <span class=s2>&#34;US_WEST_1&#34;</span>
+<span class=p>}</span>
+
+<span class=n>variable</span> <span class=s2>&#34;vpc_cidr&#34;</span> <span class=p>{</span>
+<span class=n>description</span> <span class=o>=</span> <span class=s2>&#34;SDDC management network CIDR. Only prefix of 16, 20 and 23 are supported.&#34;</span>
+<span class=n>default</span>     <span class=o>=</span> <span class=s2>&#34;172.31.48.0/20&#34;</span>
+<span class=p>}</span>
+
+<span class=n>variable</span> <span class=s2>&#34;vxlan_subnet&#34;</span> <span class=p>{</span>
+<span class=n>description</span> <span class=o>=</span> <span class=s2>&#34;A logical network segment that will be created with the SDDC under the compute gateway.&#34;</span>
+<span class=n>default</span>     <span class=o>=</span> <span class=s2>&#34;192.168.1.0/24&#34;</span>
+<span class=p>}</span>
+
+<span class=n>variable</span> <span class=n>provider_type</span> <span class=p>{</span>
+<span class=n>description</span> <span class=o>=</span> <span class=s2>&#34;Determines what additional properties are available based on cloud provider. Default value : AWS&#34;</span>
+<span class=n>default</span>     <span class=o>=</span> <span class=s2>&#34;ZEROCLOUD&#34;</span>
+<span class=p>}</span>
+
+<span class=n>variable</span> <span class=n>host_instance_type</span> <span class=p>{</span>
+<span class=n>description</span> <span class=o>=</span> <span class=s2>&#34;The instance type for the ESX hosts in the primary cluster of the SDDC. Possible values: I3_METAL, R5_METAL.&#34;</span>
+<span class=n>default</span>     <span class=o>=</span> <span class=s2>&#34;I3_METAL&#34;</span>
+<span class=p>}</span>
+
+<span class=n>variable</span> <span class=n>storage_capacity</span> <span class=p>{</span>
+<span class=n>description</span> <span class=o>=</span> <span class=s2>&#34;The storage capacity value to be requested for the SDDC primary cluster. This variable is only for R5.METAL. Possible values are 15TB, 20TB, 25TB, 30TB, 35TB per host.&#34;</span>
+<span class=n>default</span>     <span class=o>=</span> <span class=s2>&#34;15TB&#34;</span>
+<span class=p>}</span>
+
+<span class=n>variable</span> <span class=n>cluster_num_hosts</span> <span class=p>{</span>
+<span class=n>description</span> <span class=o>=</span> <span class=s2>&#34;The number of hosts in the cluster.&#34;</span>
+<span class=n>default</span> <span class=o>=</span> <span class=mi>3</span>
+<span class=p>}</span>
+
+<span class=n>variable</span> <span class=n>sddc_num_hosts</span> <span class=p>{</span>
+<span class=n>description</span> <span class=o>=</span> <span class=s2>&#34;The number of hosts in SDDC.&#34;</span>
+<span class=n>default</span>     <span class=o>=</span> <span class=mi>3</span>
+<span class=p>}</span>
+</code></pre></div><p>By Following the same instructions as presented at <a href=https://blogs.vmware.com/management/2020/09/terraform-service-in-vra.html>Terraform Service in vRA</a>
+but feeding the appropiate files presented here you could generate a Cloud Template similar to:</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml>---<span class=w>
+</span><span class=w></span><span class=k>inputs</span><span class=p>:</span><span class=w>
+</span><span class=w></span><span class=k>api_token</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>string<span class=w>
+</span><span class=w></span><span class=k>org_id</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>string<span class=w>
+</span><span class=w></span><span class=k>aws_account_number</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>string<span class=w>
+</span><span class=w></span><span class=k>sddc_name</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>string<span class=w>
+</span><span class=w>    </span><span class=k>default</span><span class=p>:</span><span class=w> </span>Terraform-SDDC<span class=w>
+</span><span class=w></span><span class=k>sddc_region</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>string<span class=w>
+</span><span class=w>    </span><span class=k>default</span><span class=p>:</span><span class=w> </span>US_WEST_1<span class=w>
+</span><span class=w></span><span class=k>vpc_cidr</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>string<span class=w>
+</span><span class=w>    </span><span class=k>default</span><span class=p>:</span><span class=w> </span><span class=m>172.31.48.0</span>/<span class=m>20</span><span class=w>
+</span><span class=w></span><span class=k>vxlan_subnet</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>string<span class=w>
+</span><span class=w>    </span><span class=k>default</span><span class=p>:</span><span class=w> </span><span class=m>192.168.1.0</span>/<span class=m>24</span><span class=w>
+</span><span class=w></span><span class=k>resources</span><span class=p>:</span><span class=w>
+</span><span class=w></span><span class=k>terraform</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>type</span><span class=p>:</span><span class=w> </span>Cloud.Terraform.Configuration<span class=w>
+</span><span class=w>    </span><span class=k>properties</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>variables</span><span class=p>:</span><span class=w>
+</span><span class=w>        </span><span class=k>api_token</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${input.api_token}&#39;</span><span class=w>
+</span><span class=w>        </span><span class=k>org_id</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${input.org_id}&#39;</span><span class=w>
+</span><span class=w>        </span><span class=k>aws_account_number</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${input.aws_account_number}&#39;</span><span class=w>
+</span><span class=w>        </span><span class=k>sddc_name</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${input.sddc_name}&#39;</span><span class=w>
+</span><span class=w>        </span><span class=k>sddc_region</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${input.sddc_region}&#39;</span><span class=w>
+</span><span class=w>        </span><span class=k>vpc_cidr</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${input.vpc_cidr}&#39;</span><span class=w>
+</span><span class=w>        </span><span class=k>vxlan_subnet</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${input.vxlan_subnet}&#39;</span><span class=w>
+</span><span class=w>    </span><span class=k>providers</span><span class=p>:</span><span class=w> </span><span class=p>[]</span><span class=w>
+</span><span class=w>    </span><span class=k>terraformVersion</span><span class=p>:</span><span class=w> </span><span class=m>0.12.29</span><span class=w>
+</span><span class=w>    </span><span class=k>configurationSource</span><span class=p>:</span><span class=w>
+</span><span class=w>        </span><span class=k>repositoryId</span><span class=p>:</span><span class=w> </span>19916daa-4d0d-4aa9<span class=m>-9887</span>-f08b21dc0980<span class=w>
+</span><span class=w>        </span><span class=k>commitId</span><span class=p>:</span><span class=w> </span>8243e868564692656d4dcc7c348a630c3ee0120b<span class=w>
+</span><span class=w>        </span><span class=k>sourceDirectory</span><span class=p>:</span><span class=w> </span>/vmc<span class=w>
+</span></code></pre></div><p><strong>Please note</strong></p><ul><li>You could simple re-use this sample by updating the assosicated <em>Commit ID</em>, <em>Repository ID</em>, <em>Folder</em> and <em>Constraints Tag</em> from your enviroment.</li><li>The Tested Terraform CLI version were <em>0.12.29</em> with the latest Terraform AWS Provider</li></ul></div></section><section class=page id=codestream><h1><a href=#codestream>Code Stream</a></h1><div class=content><p>Code Stream</p></div></section><section class=page id=pipelines><h1><a href=#pipelines>Pipelines</a></h1><div class=content><p>Code Stream Pipelines</p></div></section><section class=page id=customintegrations><h1><a href=#customintegrations>Custom Integrations</a></h1><div class=content><p>To create a Custom Integration:</p><ol><li>Create a new Custom Integration</li><li>Select the Runtime to match the example below</li><li>Replace the placeholder code with the example from below</li><li>Save and version the Custom Integration, ensuring you eanble the “Release Version” toggle</li></ol><p>To use a Custom Integration in a pipeline:</p><ol><li>Configure the Host (you’ll need a Docker endpoint configured for this) and Builder image URL settings in the Workspace tab of your pipeline (e.g. python:latest will work for a Python3 example)</li><li>Add a new Custom task to your Stage, select the name of your integration and configure any inputs</li><li>Use the task outputs to refer to the output values in your later tasks - e.g. <code>stageName.taskName.output.properties.&lt;outputPropertyName></code></li></ol></div></section><section class=page id=basicauth><h1><a href=#basicauth>Basic Auth</a></h1><div class=content><p>To generate a basic authentication header from a username and password in Code Stream you could use a CI task and execute <code>echo -n username:password | base64</code>, then export the result for use later on. A more repeatable way is to create a Custom Integration that takes the two inputs, and returns the encoded header as an output.</p><p>Using the shell runtime:</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml>---<span class=w>
 </span><span class=w></span><span class=k>runtime</span><span class=p>:</span><span class=w> </span>shell<span class=w>
 </span><span class=w></span><span class=k>code</span><span class=p>:</span><span class=w> </span><span class=sd>|
 </span><span class=sd>  export basicAuthHeader=$(echo -n $username:$password | base64)</span><span class=w>
